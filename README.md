@@ -71,7 +71,7 @@ Então nós precisamos construir um índice para os outros quatro campos de text
 
 Muitos sistemas de recuperação de dados podem exigir que você especifique algumas opções de processamento de texto para indexação e recuperação
 
-* **Tokenização** -- how to split a sequence of text into individual tokens (most tokens are just words).
+* **Tokenização** -- dividir uma sequência de texto em tokens individuais.
 * **Case-sensitive** -- A maioria dos sistemas  de recuperação de dados ignora as diferenças entre maiúsculas e minúsculas. 
 Mas, às vezes, maiúsculas e minúsculas podem ser importantes, por exemplo, **esperto** e **ESPERTO** (o sistema de recuperação ESPERTO). 
 * **Stop words** -- Com a remoção de stop words o tamanho do índice por ser reduzido drasticamente

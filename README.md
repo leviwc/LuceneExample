@@ -176,13 +176,11 @@ Agora nós temos um exemplo de um programa que constroi um indice do corpus que 
       
       // Cria o Document
       Document d = new Document();
-      // Add each field to the document with the appropriate field type options
       d.add( new Field( "docno", docno, fieldTypeMetadata ) );
       d.add( new Field( "title", title, fieldTypeText ) );
       d.add( new Field( "author", author, fieldTypeText ) );
       d.add( new Field( "source", source, fieldTypeText ) );
       d.add( new Field( "text", text, fieldTypeText ) );
-      // Add the document to the index
       System.out.println( "indexing document " + docno );
       ixwriter.addDocument( d );
   }

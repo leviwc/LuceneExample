@@ -220,7 +220,7 @@ O índice geralmente é armazenado como um vetor de documento,
 que é uma lista de pares <palavra,frequência>
 
 ```java
-String pathIndex = "/home/jiepu/Downloads/example_index_lucene";
+String pathIndex = "C:\\Users\\T-GAMER\\Documents\\Lucene\\example_corpus\\example_index";
 
 // Vamos recuperar o objeto para o Documento com ID interno=21
 String field = "text";

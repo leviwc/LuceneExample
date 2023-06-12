@@ -246,7 +246,6 @@ while ( ( term = terms.next() ) != null ) {
     // O PostingsEnum inclui apenas uma entrada de documento.
     positions = terms.postings( positions, PostingsEnum.POSITIONS );
     positions.nextDoc(); // you still need to move the cursor
-    // now accessing the occurrence position of the terms by iteratively calling nextPosition()
     for ( int i = 0; i < freq; i++ ) {
         System.out.print( ( i > 0 ? "," : "" ) + positions.nextPosition() );
     }

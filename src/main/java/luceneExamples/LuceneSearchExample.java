@@ -53,19 +53,33 @@ public class LuceneSearchExample {
             // A classe de similaridade deve ser a mesma que utilizamos inicialmente
             searcher.setSimilarity( new BM25SimilarityOriginal() );
 
-            int top = 10; // Pegamos os top 10 resultados
+            int top = 5; // Pegamos os top 5 resultados
             TopDocs docs = searcher.search( query, top );
 
-            System.out.printf( "%-10s%-20s%-10s%s\n", "Rank", "DocNo", "Score", "Title" );
+            System.out.printf( "%-10s%-20s%-10s%s\n", "Rank", "DocNo", "Score", "Author" );
             int rank = 1;
             for ( ScoreDoc scoreDoc : docs.scoreDocs ) {
                 int docid = scoreDoc.doc;
                 double score = scoreDoc.score;
                 String docno = LuceneUtils.getDocno( index, "docno", docid );
-                String title = LuceneUtils.getDocno( index, "title", docid );
-                System.out.printf( "%-10d%-20s%-10.4f%s\n", rank, docno, score, title );
+                String author = LuceneUtils.getDocno( index, "author", docid );
+                System.out.printf( "%-10d%-20s%-10.4f%s\n", rank, docno, score, author );
                 rank++;
             }
+
+            TopDocs textDocs = searcher.search( query, top );
+
+            System.out.printf( "%-10s%-20s%-10s%s\n", "Rank", "DocNo", "Score", "Text" );
+            rank = 1;
+            for ( ScoreDoc scoreDoc : textDocs.scoreDocs ) {
+                int docid = scoreDoc.doc;
+                double score = scoreDoc.score;
+                String docno = LuceneUtils.getDocno( index, "docno", docid );
+                String text = LuceneUtils.getDocno( index, "text", docid );
+                System.out.printf( "%-10d%-20s%-10.4f%s\n", rank, docno, score, text );
+                rank++;
+            }
+
 
             index.close();
             dir.close();
